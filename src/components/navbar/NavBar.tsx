@@ -22,6 +22,7 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import Divider from '@mui/material/Divider';
+import { DropdownLogin } from '../ui/dropdown/DropdownLogin';
 
 const NavBar: React.FC<NavBarProps> = ({
     brandName,
@@ -83,14 +84,13 @@ const NavBar: React.FC<NavBarProps> = ({
                                 {/** Wallet Address */}
                                 <ListItemButton>
                                     <UserWalletChip>
-                                        {/* The small yellow dot */}
                                         <YellowDot />
-                                        {/* The wallet text */}
                                         <span>{userWallet}</span>
                                     </UserWalletChip>
                                 </ListItemButton>
                             </WalletContainer>}
-
+                        {/* Login Dropdown */}
+                        <DropdownLogin />
 
                         <IconButton color="inherit" onClick={onNotificationClick}>
                             <NotificationsNoneIcon />

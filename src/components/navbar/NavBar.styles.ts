@@ -2,13 +2,12 @@ import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { Padding } from '@mui/icons-material';
 
 export const StyledAppBar = styled(AppBar)(({ theme }) => ({
   position: 'fixed',
   top: 0,
   left: 0,
-  width: '100%',
+  minWidth: '100%',
   zIndex: theme.zIndex.drawer + 1,
   backgroundColor: '#14181C',
   color: '#fff',
