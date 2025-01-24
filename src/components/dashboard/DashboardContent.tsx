@@ -3,21 +3,54 @@ import { Box, IconButton, Typography, Grid, Card, CardContent, useMediaQuery, us
 import { FiAlignLeft } from "react-icons/fi";
 import { FiArrowLeft } from "react-icons/fi";
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { useOpenseaAssets } from '../../hooks/useOpenseaAssets';
 
 const DashboardContent: React.FC<{ toggleSidebar: () => void; isSidebarOpen: boolean }> = ({
     toggleSidebar,
     isSidebarOpen,
 }) => {
+    const { data: assets, isLoading, error } = useOpenseaAssets({
+        order_direction: 'desc',
+        limit: 10, // Adjust as needed
+    });
+
+    console.log('data', assets, isLoading, error);
     const items = [
-        { title: 'Orange Ranger', price: '0.002 BTC', quantity: '10' },
-        { title: 'Founder Drop Vault', price: '0.003 BTC', quantity: '15' },
-        { title: 'Halloween Drop Vault', price: '0.004 BTC', quantity: '12' },
-        { title: 'Alien Drop Vault', price: '0.002 BTC', quantity: '20' },
-        { title: 'Digitek Drop Vault', price: '0.001 BTC', quantity: '25' },
+        {
+            title: 'Orange Ranger',
+            price: '0.002 BTC',
+            quantity: '10',
+            imageUrl: 'https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F10%2Fbored-ape-yacht-club-nft-3-4-million-record-sothebys-metaverse-0.jpg?w=960&cbr=1&q=90&fit=max', // Replace with actual image URL
+        },
+        {
+            title: 'Founder Drop Vault',
+            price: '0.003 BTC',
+            quantity: '15',
+            imageUrl: 'https://cdn.prod.website-files.com/6615636a03a6003b067c36dd/661ffd0dbe9673d914edca2d_6423fc9ca8b5e94da1681a70_Screenshot%25202023-03-29%2520at%252010.53.43.jpeg', // Replace with actual image URL
+        },
+        {
+            title: 'Halloween Drop Vault',
+            price: '0.004 BTC',
+            quantity: '12',
+            imageUrl: 'https://cdn.i-scmp.com/sites/default/files/styles/768x768/public/d8/images/canvas/2024/04/24/a94e2d09-2f19-4bd2-a13f-6d6eff58684c_eadcc3b5.jpg?itok=X0MrjxZs&v=1713940582', // Replace with actual image URL
+        },
+        {
+            title: 'Alien Drop Vault',
+            price: '0.002 BTC',
+            quantity: '20',
+            imageUrl: 'https://coingape.com/wp-content/uploads/2022/12/2_20230102_120403_0001.jpg',
+        },
+        {
+            title: 'Digitek Drop Vault',
+            price: '0.001 BTC',
+            quantity: '25',
+            imageUrl: 'https://www.kfadv.it/wp-content/uploads/Bored_Apes.jpg',
+        },
     ];
 
+
     const theme = useTheme();
-    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); // Detect small screens
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     return (
         <Box sx={{ backgroundColor: '#14181C', color: '#FFFFFF', minHeight: '100vh' }}>
@@ -51,7 +84,7 @@ const DashboardContent: React.FC<{ toggleSidebar: () => void; isSidebarOpen: boo
                     </Typography>
                 </Box>
 
-                {/* Right Section: Wallet Info and Notification */}
+                {/* Right Section: Wallet and Notification */}
                 <Box
                     sx={{
                         display: 'flex',
@@ -141,16 +174,112 @@ const DashboardContent: React.FC<{ toggleSidebar: () => void; isSidebarOpen: boo
                 <Grid container spacing={isSmallScreen ? 2 : 3}>
                     {items.map((item, index) => (
                         <Grid item xs={12} sm={6} md={4} key={index}>
-                            <Card sx={{ backgroundColor: '#1E1F25', color: '#FFFFFF' }}>
-                                <CardContent>
-                                    <Typography variant="h6">{item.title}</Typography>
-                                    <Typography variant="body2">Price: {item.price}</Typography>
-                                    <Typography variant="body2">Quantity: {item.quantity}</Typography>
+                            <Card
+                                sx={{
+                                    backgroundColor: '#1E1F25',
+                                    color: '#FFFFFF',
+                                    borderRadius: '20px',
+                                    boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+                                    overflow: 'hidden',
+                                    position: 'relative',
+                                    border: '1px solid gray',
+                                }}
+                            >
+                                {/* Price Section */}
+                                <Box
+                                    sx={{
+                                        position: 'absolute',
+                                        top: '10px',
+                                        left: '10px',
+                                        backgroundColor: '#333333',
+                                        color: '#F9A825',
+                                        padding: '5px 15px',
+                                        borderRadius: '10px',
+                                        fontSize: '0.9rem',
+                                        fontWeight: 'bold',
+                                        zIndex: 2,
+                                    }}
+                                >
+                                    {item.price}
+                                </Box>
+
+                                {/* Image Section */}
+                                <Box
+                                    sx={{
+                                        width: '100%',
+                                        overflow: 'hidden',
+                                    }}
+                                >
+                                    <img
+                                        src={item.imageUrl}
+                                        alt={item.title}
+                                        style={{
+                                            width: '100%',
+                                            height: '250px',
+                                            objectFit: 'cover',
+                                            display: 'block',
+                                        }}
+                                    />
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            color: '#FFFFFF',
+                                            fontSize: '0.8rem',
+                                            textAlign: 'start',
+                                            display: 'block',
+                                            fontWeight: 'bold',
+                                            marginTop: '-19px',
+                                            padding: '0 10px',
+                                        }}
+                                    >
+                                        IN-GAME
+                                    </Typography>
+                                </Box>
+
+                                {/* Card Content */}
+                                <CardContent
+                                    sx={{
+                                        textAlign: 'center',
+                                        padding: '15px',
+                                    }}
+                                >
+                                    <Box sx={{
+                                        padding: '15px',
+                                        boxShadow: '0 8px 15px rgba(0, 0, 0, 0.3)',
+                                        background: '#303139',
+                                        borderRadius: '20px',
+                                    }}>
+
+                                        <Typography
+                                            variant="h6"
+                                            sx={{
+                                                fontWeight: 'bold',
+                                                color: '#FFFFFF',
+                                                marginBottom: '10px',
+                                            }}
+                                        >
+                                            {item.title}
+                                        </Typography>
+
+                                        <Typography
+                                            variant="body2"
+                                            sx={{
+                                                fontSize: '0.9rem',
+                                                color: '#F9A825',
+                                                fontWeight: 'bold',
+                                            }}
+                                        >
+                                            QTY: {item.quantity}
+                                        </Typography>
+                                    </Box>
+
                                 </CardContent>
                             </Card>
                         </Grid>
                     ))}
                 </Grid>
+
+
             </Box>
         </Box>
     );
