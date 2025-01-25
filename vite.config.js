@@ -1,11 +1,14 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+// vite.config.js
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-  plugins: [react()],
-  esbuild: {
-    loader: 'tsx',
-    include: /src\/.*\.tsx?$/,
-    exclude: [],
-  },
-})
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.reservoir.tools',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      }
+    }
+  }
+});
