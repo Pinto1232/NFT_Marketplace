@@ -6,6 +6,7 @@ export interface BasketItem {
   btcAmount: string;
   sats: string;
   usdAmount: string;
+  ethPrice: string;
 }
 
 export interface FeeSavings {
