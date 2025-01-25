@@ -340,7 +340,7 @@ const DashboardContent: React.FC<{ toggleSidebar: () => void; isSidebarOpen: boo
           </Box>
         </Box>
 
-        <Box sx={{ padding: 3, marginTop: '60px' }}>
+        <Box sx={{ padding: 3, marginTop: '60px', ml: 10, mr: 10 }}>
           <Typography variant="h4" gutterBottom>
             NFT Marketplace
           </Typography>
