@@ -7,7 +7,7 @@ const Dashboard: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); // Detect small screens
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm')); 
 
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
@@ -19,7 +19,7 @@ const Dashboard: React.FC = () => {
       <Sidebar
         isOpen={isSidebarOpen}
         onClose={toggleSidebar}
-        variant={isSmallScreen ? 'temporary' : 'permanent'} // Temporary drawer only for small screens
+        variant={isSmallScreen ? 'temporary' : 'permanent'} 
       />
       {/* Main Content */}
       <Box component="main" sx={{ flexGrow: 1 }}>
