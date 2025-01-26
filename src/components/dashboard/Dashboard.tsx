@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
 import Sidebar from './Sidebar';
-import DashboardContent from './DashboardContent';
+import DashboardContent from './dashboardContent';
 
 const Dashboard: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);

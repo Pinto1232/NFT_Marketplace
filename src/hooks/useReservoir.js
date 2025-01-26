@@ -1,6 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchCollections } from '../services/reservoirService';
+import { fetchCollections } from '../services/reserVoirService';
 
+/**
+ * @param {object} params 
+ */
 export const useOpenseaAssets = (params) => {
   return useQuery({
     queryKey: ['collections', params],
