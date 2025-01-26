@@ -1,5 +1,5 @@
-import { BasketItem } from '../ui/basketModal/BasketModal.types';
-import { TransactionDetails } from './dashboard.types';
+import { BasketItem } from '../ui/basketModal/DasketModal.types';
+import { TransactionDetails } from './Dashboard.types';
 
 export const formatDate = (isoString: string) => {
   const date = new Date(isoString);

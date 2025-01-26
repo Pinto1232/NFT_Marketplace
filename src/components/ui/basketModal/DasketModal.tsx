@@ -13,7 +13,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';
 import {
   BasketModalProps,
-} from './BasketModal.types';
+} from './DasketModal.types';
 
 const BasketModal = ({
   open,
