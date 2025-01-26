@@ -29,6 +29,7 @@ import {
   Tv as StarvaraIcon,
 } from '@mui/icons-material';
 import logo from '../../assets/logo.svg';
+import { useNavigate } from 'react-router-dom';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -41,6 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, variant }) => {
   const [walletOpen, setWalletOpen] = useState(false);
   const [rewardOpen, setRewardOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<string>('');
+  const navigate = useNavigate();
 
   const toggleWallet = () => setWalletOpen((prev) => !prev);
   const toggleReward = () => setRewardOpen((prev) => !prev);
@@ -342,7 +344,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, variant }) => {
 
         {/* Logout */}
         <ListItem
-          onClick={() => handleItemClick('Logout')}
+          onClick={() => {
+            handleItemClick('Logout');
+            navigate('/');
+          }}
           sx={{
             cursor: 'pointer',
             color: activeItem === 'Logout' ? '#FF5A5F' : '#FFFFFF',
