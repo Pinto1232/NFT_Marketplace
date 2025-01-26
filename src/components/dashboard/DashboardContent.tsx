@@ -43,6 +43,7 @@ createWeb3Modal({ wagmiConfig, projectId });
 const DashboardContent: React.FC<DashboardContentProps> = ({ toggleSidebar, isSidebarOpen }) => {
   const { isConnected, address } = useAccount();
   const { data: assets, isLoading, error } = useOpenseaAssets({ orderDirection: 'desc', limit: 5 });
+  console.log('data', assets, isLoading, error);
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const styles = dashboardStyles(theme, isSmallScreen, isConnected);

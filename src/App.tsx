@@ -58,7 +58,7 @@ function App() {
               overflowX: 'hidden'
             }}>
               <Dashboard />
-              <Footer />
+             
             </div>
           } 
         />

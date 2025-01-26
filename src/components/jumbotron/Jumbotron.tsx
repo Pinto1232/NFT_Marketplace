@@ -14,6 +14,7 @@ const Jumbotron: React.FC<JumbotronProps> = ({ title, subtitle }) => {
     limit: 5 
   });
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
+  console.log('assets data', assets);
 
 
   interface Asset {
