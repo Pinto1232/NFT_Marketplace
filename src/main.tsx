@@ -6,7 +6,7 @@ import { WagmiConfig } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/react';
 
-// Configure WalletConnect
+
 const projectId = '94fb09ee0c7f253b6897a59044a23a88';
 const chains: readonly [typeof mainnet] = [mainnet];
 const wagmiConfig = defaultWagmiConfig({ 
@@ -21,7 +21,7 @@ const wagmiConfig = defaultWagmiConfig({
 });
 createWeb3Modal({ wagmiConfig, projectId });
 
-// Create React Query client
+
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

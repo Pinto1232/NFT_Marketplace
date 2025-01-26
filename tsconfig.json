@@ -8,7 +8,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,              
+    "declaration": false,        
+    "typeRoots": ["./node_modules/@types"],
+    "paths": {}                  
   },
-  "include": ["src", "src/svg.d.ts"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

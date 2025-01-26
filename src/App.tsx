@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar/NavBar';
+import './index.css';
 import Jumbotron from './components/jumbotron/Jumbotron';
-import Dashboard from './components/dashboard/Dashboard'; 
+import Dashboard from './components/dashboard/Dashboard';
+import Footer from './components/footer/Footer';
 
 function App() {
   const handleNotificationClick = () => {
@@ -18,7 +20,13 @@ function App() {
         <Route
           path="/"
           element={
-            <>
+            <div style={{ 
+              minHeight: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              width: '100vw',
+              overflowX: 'hidden'
+            }}>
               <NavBar
                 brandName="Marketplace"
                 userBalance="0.012 BTC"
@@ -31,14 +39,29 @@ function App() {
               <Jumbotron
                 title="Welcome to the Marketplace"
                 subtitle="Discover and trade NFTs"
-                backgroundImage="https://www.appdupe.com/blog/wp-content/uploads/2021/05/Untitled-design-9.jpg"
+                backgroundImage="url_to_background_image"
               />
-            </>
+              
+              <Footer />
+            </div>
           }
         />
 
-        {/* Route for the Dashboard */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route 
+          path="/dashboard" 
+          element={
+            <div style={{ 
+              minHeight: '100vh',
+              display: 'flex',
+              flexDirection: 'column',
+              width: '100vw',
+              overflowX: 'hidden'
+            }}>
+              <Dashboard />
+              <Footer />
+            </div>
+          } 
+        />
       </Routes>
     </Router>
   );
