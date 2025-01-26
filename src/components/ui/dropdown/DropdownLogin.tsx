@@ -38,10 +38,8 @@ export const DropdownLogin = () => {
     };
 
     const handleLogin = () => {
-
         console.log('Email:', email);
         console.log('Password:', password);
-         // Redirect to Dashboard
     navigate('/dashboard');
     handleClose();
     };

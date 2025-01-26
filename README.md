@@ -28,10 +28,8 @@ This is an **NFT Marketplace** project built with the following technologies:
 
 ### Prerequisites
 Make sure you have the following installed:
-- **Node.js** (v16+)
 - **npm** or **yarn**
-- **.NET SDK**
-- **PostgreSQL** database server
+
 
 ### Installation
 1. Clone the repository:
