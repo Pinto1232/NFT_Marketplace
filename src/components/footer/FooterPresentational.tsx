@@ -1,24 +1,14 @@
 import React from 'react';
 import { Box, Container, Grid, Typography, Link, IconButton } from '@mui/material';
 import { GitHub, Twitter, LinkedIn, Email } from '@mui/icons-material';
-import FooterContainer from './FooterContainer';
 
-const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
+interface FooterPresentationalProps {
+  currentYear: number;
+  footerLinks: { title: string; links: string[] }[];
+  socialIcons: { icon: JSX.Element; label: string; url: string }[];
+}
 
-  const footerLinks = [
-    { title: 'Company', links: ['About', 'Careers', 'Contact'] },
-    { title: 'Legal', links: ['Privacy', 'Terms', 'Security'] },
-    { title: 'Resources', links: ['Documentation', 'Blog', 'Help Center'] }
-  ];
-
-  const socialIcons = [
-    { icon: <GitHub />, label: 'GitHub', url: '#' },
-    { icon: <Twitter />, label: 'Twitter', url: '#' },
-    { icon: <LinkedIn />, label: 'LinkedIn', url: '#' },
-    { icon: <Email />, label: 'Email', url: '#' }
-  ];
-
+const FooterPresentational: React.FC<FooterPresentationalProps> = ({ currentYear, footerLinks, socialIcons }) => {
   return (
     <Box
       component="footer"
@@ -102,4 +92,4 @@ const Footer: React.FC = () => {
   );
 };
 
-export default FooterContainer;
+export default FooterPresentational;

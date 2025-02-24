@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, useMediaQuery, useTheme } from '@mui/material';
-import Sidebar from './Sidebar';
+import Sidebar from '../navigation/Sidebar';
 import DashboardContent from './DashboardContent';
 
 const Dashboard: React.FC = () => {

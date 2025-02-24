@@ -1,22 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { JumbotronProps } from './Jumbotron.types';
-import { 
-  JumbotronContent, 
-  JumbotronTitle, 
-  JumbotronSubtitle 
-} from './Jumbotron.styles';
+import JumbotronPresentational from './JumbotronPresentational';
 import { useOpenseaAssets } from '../../hooks/useReservoir';
-import JumbotronContainer from './JumbotronContainer';
 
-
-const Jumbotron: React.FC<JumbotronProps> = ({ title, subtitle }) => {
+const JumbotronContainer: React.FC<JumbotronProps> = ({ title, subtitle }) => {
   const { data: assets, isLoading, error } = useOpenseaAssets({ 
     orderDirection: 'desc', 
     limit: 5 
   });
   const [currentBannerIndex, setCurrentBannerIndex] = useState(0);
   console.log('assets data', assets);
-
 
   interface Asset {
     banner: string | null;
@@ -41,12 +34,11 @@ const Jumbotron: React.FC<JumbotronProps> = ({ title, subtitle }) => {
   if (banners.length === 0) return <div>No banners available</div>;
 
   return (
-    <JumbotronContainer backgroundImage={banners[currentBannerIndex]} title={title} subtitle={subtitle}>
-      <JumbotronContent>
-        <JumbotronTitle variant="h2">{title}</JumbotronTitle>
-        <JumbotronSubtitle variant="h5">{subtitle}</JumbotronSubtitle>
-      </JumbotronContent>
-    </JumbotronContainer>
+    <JumbotronPresentational 
+      title={title} 
+      subtitle={subtitle} 
+      backgroundImage={banners[currentBannerIndex]} 
+    />
   );
 };
 
